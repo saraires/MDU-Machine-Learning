@@ -22,10 +22,15 @@ double EntropyFunctions::entropy(const std::vector<double>& y) {
 	double entropy = 0.0;
 	
 	// Convert labels to unique integers and count their occurrences
-	//TODO
+	for (double label : y) {
+		label_map[label]++;
+	}
 	
 	// Compute the probability and entropy
-	//TODO
+	for (const auto& par : label_map) {
+		double p = (double)par.second / total_samples;
+		entropy -= p * std::log2(p);                      // Shannon entropy formula
+	}
 
 	return entropy;
 }
@@ -37,13 +42,17 @@ double EntropyFunctions::entropy(const std::vector<double>& y, const std::vector
 	std::unordered_map<double, int> label_map;
 	int total_samples = idxs.size();
 	double entropy = 0.0;
-	// Convert labels to unique integers and count their occurrences
-	//TODO
 
+	// Convert labels to unique integers and count their occurrences
+	for (int idx : idxs) {
+		label_map[y[idx]]++;
+	}
 
 	// Compute the probability and entropy
-	//TODO
-
+	for (const auto& par : label_map) {
+		double p = (double)par.second / total_samples;
+		entropy -= p * std::log2(p);
+	}
 
 	return entropy;
 }

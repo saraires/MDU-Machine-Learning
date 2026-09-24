@@ -37,8 +37,11 @@ void DecisionTreeClassification::fit(std::vector<std::vector<double>>& X, std::v
 std::vector<double> DecisionTreeClassification::predict(std::vector<std::vector<double>>& X) {
 	std::vector<double> predictions;
 	
-	// Implement the function
-	// TODO
+	// Por cada flor, la bajamos por el árbol y guardamos su predicción
+	for (int i = 0; i < (int)X.size(); i++) {
+		double pred = traverseTree(X[i], root);
+		predictions.push_back(pred);
+	}
 	
 	return predictions;
 }
@@ -47,22 +50,59 @@ std::vector<double> DecisionTreeClassification::predict(std::vector<std::vector<
 // growTree function: This function grows a decision tree using the given data and labelsand  return a pointer to the root node of the decision tree.//
 Node* DecisionTreeClassification::growTree(std::vector<std::vector<double>>& X, std::vector<double>& y, int depth) {
 	
-	/* Implement the following:
-		--- define stopping criteria
-    	--- Loop through candidate features and potential split thresholds.
-		--- greedily select the best split according to information gain
-		---grow the children that result from the split
-	*/
-	
+	int n_samples = X.size();
+	int n_labels = std::set<double>(y.begin(), y.end()).size();  // cuántas especies distintas hay
+
+	// --- define stopping criteria
+	if (depth >= max_depth || n_labels == 1 || n_samples < min_samples_split) {
+		double leaf_value = mostCommonlLabel(y);
+		return new Node(0, 0.0, nullptr, nullptr, leaf_value);
+	}
+
 	double best_gain = -1.0; // set the best gain to -1
 	int split_idx = NULL; // split index
 	double split_thresh = NULL; // split threshold
 	
-	// TODO
+	// --- Loop through candidate features and potential split thresholds
+	for (int feat = 0; feat < n_feats; feat++) {
+		std::vector<double> X_column;
+		for (int i = 0; i < n_samples; i++) {
+			X_column.push_back(X[i][feat]);        // saco la columna de esa medida
+		}
+		for (double threshold : X_column) {        // pruebo cada valor como umbral
+			double gain = informationGain(y, X_column, threshold);
+			if (gain > best_gain) {                // ¿es la mejor pregunta hasta ahora?
+				best_gain = gain;
+				split_idx = feat;
+				split_thresh = threshold;
+			}
+		}
+	}
+
+	// --- si ninguna pregunta mejora nada, también hacemos HOJA
+	if (best_gain <= 0.0) {
+		double leaf_value = mostCommonlLabel(y);
+		return new Node(0, 0.0, nullptr, nullptr, leaf_value);
+	}
+
+	// --- partir los datos según la mejor pregunta encontrada
+	std::vector<std::vector<double>> X_left, X_right;
+	std::vector<double> y_left, y_right;
+	for (int i = 0; i < n_samples; i++) {
+		if (X[i][split_idx] <= split_thresh) {
+			X_left.push_back(X[i]);
+			y_left.push_back(y[i]);
+		}
+		else {
+			X_right.push_back(X[i]);
+			y_right.push_back(y[i]);
+		}
+	}
 	
-	Node* left; // grow the left tree
-	Node* right;  // grow the right tree
-	return new Node(split_idx, split_thresh, left, right); // return a new node with the split index, split threshold, left tree, and right tree
+	Node* left = growTree(X_left, y_left, depth + 1);
+	Node* right = growTree(X_right, y_right, depth + 1);
+	return new Node(split_idx, split_thresh, left, right);
+	
 }
 
 
@@ -70,16 +110,32 @@ Node* DecisionTreeClassification::growTree(std::vector<std::vector<double>>& X, 
 double DecisionTreeClassification::informationGain(std::vector<double>& y, std::vector<double>& X_column, double split_thresh) {
 	// parent loss // You need to caculate entropy using the EntropyFunctions class//
 	double parent_entropy = EntropyFunctions::entropy(y);
-
-	/* Implement the following:
-	   --- generate split
-	   --- compute the weighted avg. of the loss for the children
-	   --- information gain is difference in loss before vs. after split
-	*/
 	double ig = 0.0;
 	
-	// TODO
+	// -- - generate split : separar las posiciones en izquierda y derecha
+	std::vector<int> left_idxs, right_idxs;
+	for (int i = 0; i < (int)X_column.size(); i++) {
+		if (X_column[i] <= split_thresh)
+			left_idxs.push_back(i);
+		else
+			right_idxs.push_back(i);
+	}
+
+	// si un lado queda vacío, esta pregunta no separa nada → ganancia 0
+	if (left_idxs.empty() || right_idxs.empty())
+		return 0.0;
 	
+	// --- compute the weighted avg. of the loss for the children
+	int n = y.size();
+	int n_left = left_idxs.size();
+	int n_right = right_idxs.size();
+	double e_left = EntropyFunctions::entropy(y, left_idxs);
+	double e_right = EntropyFunctions::entropy(y, right_idxs);
+	double child_entropy = ((double)n_left / n) * e_left + ((double)n_right / n) * e_right;
+
+	// --- information gain is difference in loss before vs. after split
+	ig = parent_entropy - child_entropy;
+
 	return ig;
 }
 
@@ -88,7 +144,17 @@ double DecisionTreeClassification::informationGain(std::vector<double>& y, std::
 double DecisionTreeClassification::mostCommonlLabel(std::vector<double>& y) {	
 	double most_common = 0.0;
 	
-	// TODO
+	std::unordered_map<double, int> counts;
+	for (double label : y) {
+		counts[label]++;              // count the occurrences of each label	
+	}
+	int best_count = -1;
+	for (const auto& par : counts) {  // stay with the label that has the highest count
+		if (par.second > best_count) {
+			best_count = par.second;
+			most_common = par.first;
+		}
+	}
 	return most_common;
 }
 
@@ -96,14 +162,17 @@ double DecisionTreeClassification::mostCommonlLabel(std::vector<double>& y) {
 // traverseTree function: Traverses a decision tree given an input vector and a node.//
 double DecisionTreeClassification::traverseTree(std::vector<double>& x, Node* node) {
 
-	/* Implement the following:
-		--- If the node is a leaf node, return its value
-		--- If the feature value of the input vector is less than or equal to the node's threshold, traverse the left subtree
-		--- Otherwise, traverse the right subtree
-	*/
-	// TODO
-	
-	return 0.0;
+	// Si el nodo es una hoja, devolvemos su valor (la especie)
+	if (node->isLeafNode()) {
+		return node->value;
+	}
+
+	// Si la medida de la flor es <= umbral, bajamos por la izquierda...
+	if (x[node->feature] <= node->threshold) {
+		return traverseTree(x, node->left);
+	}
+	// ...si no, por la derecha
+	return traverseTree(x, node->right);
 }
 
 

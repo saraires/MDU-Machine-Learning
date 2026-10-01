@@ -29,42 +29,120 @@ using namespace System::Windows::Forms; // For MessageBox
 										///  LinearRegression class implementation  ///
 
 
-// Function to fit the linear regression model to the training data //
+// Function to fit the linear regression model to the training data Matrix Form//
 void LinearRegression::fit(const std::vector<std::vector<double>>& trainData, const std::vector<double>& trainLabels) {
 
-	// This implementation is using Matrix Form method
-	/* Implement the following:	  
-	    --- Check if the sizes of trainData and trainLabels match
-	    --- Convert trainData to matrix representation
-	    --- Construct the design matrix X
-		--- Convert trainLabels to matrix representation
-		--- Calculate the coefficients using the least squares method
-		--- Store the coefficients for future predictions
-	*/
-	
-	// TODO
+    // --- 1. Verificar que los tamaños coincidan
+    if (trainData.size() != trainLabels.size()) {
+        throw std::invalid_argument("trainData y trainLabels deben tener el mismo número de muestras.");
+    }
+
+    int n_samples = trainData.size();
+    int n_features = trainData[0].size();
+
+    // --- 2. Construir la matriz de diseño X (con columna de unos para el bias)
+    Eigen::MatrixXd X(n_samples, n_features + 1);
+    for (int i = 0; i < n_samples; i++) {
+        X(i, 0) = 1.0;                          // columna de unos (el bias)
+        for (int j = 0; j < n_features; j++) {
+            X(i, j + 1) = trainData[i][j];      // las medidas de cada casa
+        }
+    }
+
+    // --- 3. Convertir las etiquetas (precios) a un vector de Eigen
+    Eigen::VectorXd y(n_samples);
+    for (int i = 0; i < n_samples; i++) {
+        y(i) = trainLabels[i];
+    }
+
+    // --- 4. Mínimos cuadrados: coeficientes = (Xᵀ X)⁻¹ Xᵀ y
+    m_coefficients = (X.transpose() * X).inverse() * X.transpose() * y;
 }
 
 
 // Function to make predictions on new data //
 std::vector<double> LinearRegression::predict(const std::vector<std::vector<double>>& testData) {
 
-	// This implementation is using Matrix Form method    
-    /* Implement the following
-		--- Check if the model has been fitted
-		--- Convert testData to matrix representation
-		--- Construct the design matrix X
-		--- Make predictions using the stored coefficients
-		--- Convert predictions to a vector
-	*/
-	
-	// TODO
+    std::vector<double> result;
 
-	std::vector<double> result;
-	
+    // --- 1. Verificar que el modelo ya fue entrenado
+    if (m_coefficients.size() == 0) {
+        throw std::runtime_error("El modelo no ha sido entrenado todavía.");
+    }
+
+    int n_samples = testData.size();
+    int n_features = testData[0].size();
+
+    // --- 2. Construir la matriz de diseño X (igual que en fit: con columna de unos)
+    Eigen::MatrixXd X(n_samples, n_features + 1);
+    for (int i = 0; i < n_samples; i++) {
+        X(i, 0) = 1.0;
+        for (int j = 0; j < n_features; j++) {
+            X(i, j + 1) = testData[i][j];
+        }
+    }
+
+    // --- 3. Predicciones = X × coeficientes
+    Eigen::VectorXd predictions = X * m_coefficients;
+
+    // --- 4. Convertir el resultado a un std::vector
+    for (int i = 0; i < n_samples; i++) {
+        result.push_back(predictions(i));
+    }
+
     return result;
 }
 
+// Descent Gradient Form
+void LinearRegression::fit(const std::vector<std::vector<double>>& trainData, const std::vector<double>& trainLabels, double learning_rate, int num_epochs) {
+
+    int n_samples = trainData.size();
+    int n_features = trainData[0].size();
+
+    // --- Inicializar coeficientes pequeños (uno por medida + 1 para el bias)
+    m_weights.assign(n_features + 1, 0.0);
+
+    // --- NIVEL 1: repetir muchos epochs
+    for (int epoch = 0; epoch < num_epochs; epoch++) {
+
+        // --- NIVEL 2: recorrer cada casa
+        for (int i = 0; i < n_samples; i++) {
+
+            // Predicción = suma ponderada (SIN sigmoide)
+            double prediction = m_weights[0];  // el bias
+            for (int j = 0; j < n_features; j++) {
+                prediction += m_weights[j + 1] * trainData[i][j];
+            }
+
+            // Error = predicción − precio real
+            double error = prediction - trainLabels[i];
+
+            // Ajustar coeficientes (coef -= lr × error × medida)
+            m_weights[0] -= learning_rate * error;  // el bias
+            for (int j = 0; j < n_features; j++) {
+                m_weights[j + 1] -= learning_rate * error * trainData[i][j];
+            }
+        }
+    }
+}
+
+// Predict function for gradient descent form
+std::vector<double> LinearRegression::predict(const std::vector<std::vector<double>>& testData, bool useGradientDescent) {
+
+    std::vector<double> result;
+    int n_features = testData[0].size();
+
+    // Por cada casa, calcular la suma ponderada con los coeficientes aprendidos
+    for (int i = 0; i < (int)testData.size(); i++) {
+        double prediction = m_weights[0];  // el bias
+        for (int j = 0; j < n_features; j++) {
+            prediction += m_weights[j + 1] * testData[i][j];
+        }
+        result.push_back(prediction);
+    }
+
+    return result;
+}
 
 
 /// runLinearRegression: this function runs the Linear Regression algorithm on the given dataset and 

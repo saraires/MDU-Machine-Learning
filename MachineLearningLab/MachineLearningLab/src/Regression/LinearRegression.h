@@ -22,9 +22,14 @@ public:
         std::vector<double>, std::vector<double>>
         runLinearRegression(const std::string& filePath, int trainingRatio);
 
+    void fit(const std::vector<std::vector<double>>& trainData, const std::vector<double>& trainLabels, double learning_rate, int num_epochs);
+    std::vector<double> predict(const std::vector<std::vector<double>>& testData, bool useGradientDescent);
+
 private:
 
     Eigen::VectorXd m_coefficients; // Store the coefficients for future predictions
+
+    std::vector<double> m_weights;  // coeficientes del gradient descent
 
 };
 

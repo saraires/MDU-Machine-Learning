@@ -13,7 +13,8 @@
 #include <sstream>
 #include <map>
 #include <random>
-#include <unordered_map> 
+#include <unordered_map>
+#include <cstdlib>
 
 using namespace System::Windows::Forms; // For MessageBox
 
@@ -29,34 +30,80 @@ void LogisticRegression::fit(const std::vector<std::vector<double>>& X_train, co
     int num_features = X_train[0].size();
     int num_classes = std::set<double>(y_train.begin(), y_train.end()).size();
 
+    // --- Inicializar pesos ALEATORIOS para cada clase (+1 por el bias)
+    std::srand(42); // semilla fija → resultados repetibles (útil para comparar en la Task 2)
+    weights.clear();
+    for (int c = 0; c < num_classes; c++) {
+        std::vector<double> class_weights;
+        for (int j = 0; j < num_features + 1; j++) {
+            double r = ((double)std::rand() / RAND_MAX) * 0.02 - 0.01; // valor pequeño entre -0.01 y 0.01
+            class_weights.push_back(r);
+        }
+        weights.push_back(class_weights);
+    }
 
-	/* Implement the following:
-       	--- Initialize weights for each class
-    	--- Loop over each class label
-    	--- Convert the problem into a binary classification problem
-        --- Loop over training epochs
-       	--- Add bias term to the training example
-    	--- Calculate weighted sum of features
-        --- Calculate the sigmoid of the weighted sum
-        --- Update weights using gradient descent
-    */
-    
-    // TODO
+    // --- NIVEL 1: un clasificador por cada clase (one-vs-rest)
+    for (int c = 0; c < num_classes; c++) {
+
+        // --- NIVEL 2: repetir muchos epochs
+        for (int epoch = 0; epoch < num_epochs; epoch++) {
+
+            // --- NIVEL 3: recorrer cada flor de entrenamiento
+            for (int i = 0; i < (int)X_train.size(); i++) {
+
+                // Convertir a problema binario: 1 si ES la clase c, 0 si no
+                double y_binary = ((int)y_train[i] == c) ? 1.0 : 0.0;
+
+                // Suma ponderada z (empieza con el bias = peso [0])
+                double z = weights[c][0];
+                for (int j = 0; j < num_features; j++) {
+                    z += weights[c][j + 1] * X_train[i][j];
+                }
+
+                // Predicción = sigmoide(z)
+                double prediction = sigmoid(z);
+
+                // Error = predicción − real
+                double error = prediction - y_binary;
+
+                // Ajustar pesos con gradient descent (peso -= lr × error × medida)
+                weights[c][0] -= learning_rate * error;           // el bias (su "medida" es 1)
+                for (int j = 0; j < num_features; j++) {
+                    weights[c][j + 1] -= learning_rate * error * X_train[i][j];
+                }
+            }
+        }
+    }
 }
 
 // Predict method to predict class labels for test data
 std::vector<double> LogisticRegression::predict(const std::vector<std::vector<double>>& X_test) {
     std::vector<double> predictions;
-    
-    /* Implement the following:
-    	--- Loop over each test example
-        --- Add bias term to the test example
-        --- Calculate scores for each class by computing the weighted sum of features
-        --- Predict class label with the highest score
-    */
-      
-    // TODO
-    
+
+    int num_features = X_test[0].size();
+    int num_classes = weights.size();
+
+    // Recorrer cada flor de test
+    for (int i = 0; i < (int)X_test.size(); i++) {
+
+        double best_score = -1e18;  // el peor puntaje posible
+        int best_class = 0;
+
+        // Calcular el puntaje de cada clase y quedarse con el mayor
+        for (int c = 0; c < num_classes; c++) {
+            double z = weights[c][0];  // bias
+            for (int j = 0; j < num_features; j++) {
+                z += weights[c][j + 1] * X_test[i][j];
+            }
+            if (z > best_score) {   // ¿este modelo está más seguro?
+                best_score = z;
+                best_class = c;
+            }
+        }
+
+        predictions.push_back((double)best_class);  // la clase ganadora
+    }
+
     return predictions;
 }
 

@@ -52,7 +52,7 @@ void LogisticRegression::fit(const std::vector<std::vector<double>>& X_train, co
             for (int i = 0; i < (int)X_train.size(); i++) {
 
                 // Convertir a problema binario: 1 si ES la clase c, 0 si no
-                double y_binary = ((int)y_train[i] == c) ? 1.0 : 0.0;
+				double y_binary = ((int)y_train[i] == c) ? 1.0 : 0.0;  //valor real de la etiqueta para esta clase
 
                 // Suma ponderada z (empieza con el bias = peso [0])
                 double z = weights[c][0];

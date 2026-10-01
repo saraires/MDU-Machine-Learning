@@ -205,10 +205,12 @@ std::tuple<double, double, double, double, double, double,
         DataPreprocessor::splitDataset(dataset, trainRatio, trainData, trainLabels, testData, testLabels);
 
         // Fit the model to the training data
-        fit(trainData, trainLabels);
+        //fit(trainData, trainLabels);
+        fit(trainData, trainLabels, 0.000000001, 1000);
 
         // Make predictions on the test data
-        std::vector<double> testPredictions = predict(testData);
+        //std::vector<double> testPredictions = predict(testData);
+        std::vector<double> testPredictions = predict(testData, true);
 
         // Calculate evaluation metrics (e.g., MAE, MSE)
         double test_mae = Metrics::meanAbsoluteError(testLabels, testPredictions);

@@ -206,7 +206,7 @@ std::tuple<double, double, double, double, double, double,
 
         // Fit the model to the training data
         //fit(trainData, trainLabels);
-        fit(trainData, trainLabels, 0.000000001, 1000);
+        fit(trainData, trainLabels, 0.0000001, 1000);
 
         // Make predictions on the test data
         //std::vector<double> testPredictions = predict(testData);
@@ -218,7 +218,8 @@ std::tuple<double, double, double, double, double, double,
         double test_rsquared = Metrics::rSquared(testLabels, testPredictions);
 
         // Make predictions on the training data
-        std::vector<double> trainPredictions = predict(trainData);
+        //std::vector<double> trainPredictions = predict(trainData);
+        std::vector<double> trainPredictions = predict(trainData, true);
 
         // Calculate evaluation metrics for training data
         double train_mae = Metrics::meanAbsoluteError(trainLabels, trainPredictions);

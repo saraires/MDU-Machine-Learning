@@ -31,14 +31,54 @@ void FuzzyCMeans::fit(const std::vector<std::vector<double>>& data) {
 	// Create a copy of the data to preserve the original dataset
 	std::vector<std::vector<double>> normalizedData = data;
 
-	/* Implement the following:
-		--- Initialize centroids randomly
-		--- Initialize the membership matrix with the number of data points
-		--- Perform Fuzzy C-means clustering
-	*/
-	
-	//TODO
-	
+	int numPoints = normalizedData.size();
+	int numFeatures = normalizedData[0].size();
+
+	/* --- Initialize centroids randomly --- */
+	centroids_.clear();
+	std::vector<int> indices(numPoints);
+	for (int i = 0; i < numPoints; ++i) {
+		indices[i] = i;
+	}
+
+	std::random_device rd;
+	std::mt19937 g(rd());
+	std::shuffle(indices.begin(), indices.end(), g);
+
+	for (int i = 0; i < numClusters_; ++i) {
+		centroids_.push_back(normalizedData[indices[i]]);
+	}
+
+	/* --- Initialize the membership matrix with the number of data points --- */
+	initializeMembershipMatrix(numPoints);
+
+	// Actualizamos inicialmente la matriz con los centroides aleatorios generados
+	updateMembershipMatrix(normalizedData, centroids_);
+
+	/* --- Perform Fuzzy C-means clustering --- */
+	for (int iter = 0; iter < maxIterations_; ++iter) {
+		std::vector<std::vector<double>> oldCentroids = centroids_;
+
+		// 1. Actualizar centroides basándose en las pertenencias actuales
+		updateCentroids(normalizedData);
+
+		// 2. Actualizar las pertenencias usando los nuevos centroides
+		updateMembershipMatrix(normalizedData, centroids_);
+
+		// 3. Comprobar convergencia (si los centroides ya no se mueven)
+		bool converged = true;
+		for (int j = 0; j < numClusters_; ++j) {
+			for (int f = 0; f < numFeatures; ++f) {
+				if (std::abs(oldCentroids[j][f] - centroids_[j][f]) > 1e-5) {
+					converged = false;
+					break;
+				}
+			}
+			if (!converged) break;
+		}
+
+		if (converged) break;
+	}
 }
 
 
@@ -47,63 +87,160 @@ void FuzzyCMeans::initializeMembershipMatrix(int numDataPoints) {
 	membershipMatrix_.clear();
 	membershipMatrix_.resize(numDataPoints, std::vector<double>(numClusters_, 0.0));
 
-	/* Implement the following:
-		--- Initialize membership matrix with random values that sum up to 1 for each data point
-		---	Normalize membership values to sum up to 1 for each data point
-	*/
-	
-	// TODO
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_real_distribution<> dis(0.01, 1.0); // Evitar ceros exactos
+
+	/* --- Initialize membership matrix with random values that sum up to 1 for each data point --- */
+	for (int i = 0; i < numDataPoints; ++i) {
+		double sum = 0.0;
+		for (int j = 0; j < numClusters_; ++j) {
+			membershipMatrix_[i][j] = dis(gen);
+			sum += membershipMatrix_[i][j];
+		}
+
+		/* --- Normalize membership values to sum up to 1 for each data point --- */
+		for (int j = 0; j < numClusters_; ++j) {
+			membershipMatrix_[i][j] /= sum;
+		}
+	}
 }
 
 
 // updateMembershipMatrix function: Updates the membership matrix using the fuzzy c-means algorithm.//
 void FuzzyCMeans::updateMembershipMatrix(const std::vector<std::vector<double>>& data, const std::vector<std::vector<double>> centroids_) {
 
-	/* Implement the following:
-		---	Iterate through each data point
-		--- Calculate the distance between the data point and the centroid
-		--- Update the membership matrix with the new value
-		--- Normalize membership values to sum up to 1 for each data point
-	*/
-	
-	// TODO
-	
+	int numPoints = data.size();
+	double p = 2.0 / (fuzziness_ - 1.0); // Exponente de la fórmula FCM
+
+	/* --- Iterate through each data point --- */
+	for (int i = 0; i < numPoints; ++i) {
+		std::vector<double> distances(numClusters_);
+		bool pointOnCentroid = false;
+		int exactCentroidIdx = -1;
+
+		for (int j = 0; j < numClusters_; ++j) {
+			/* --- Calculate the distance between the data point and the centroid --- */
+			distances[j] = SimilarityFunctions::euclideanDistance(data[i], centroids_[j]);
+
+			if (distances[j] < 1e-10) { // Si el punto es idéntico al centroide
+				pointOnCentroid = true;
+				exactCentroidIdx = j;
+			}
+		}
+
+		/* --- Update the membership matrix with the new value --- */
+		if (pointOnCentroid) {
+			for (int j = 0; j < numClusters_; ++j) {
+				membershipMatrix_[i][j] = (j == exactCentroidIdx) ? 1.0 : 0.0;
+			}
+		}
+		else {
+			double totalSum = 0.0;
+			for (int j = 0; j < numClusters_; ++j) {
+				double denomSum = 0.0;
+				for (int k = 0; k < numClusters_; ++k) {
+					denomSum += std::pow(distances[j] / distances[k], p);
+				}
+				membershipMatrix_[i][j] = 1.0 / denomSum;
+				totalSum += membershipMatrix_[i][j];
+			}
+
+			/* --- Normalize membership values to sum up to 1 for each data point --- */
+			for (int j = 0; j < numClusters_; ++j) {
+				membershipMatrix_[i][j] /= totalSum;
+			}
+		}
+	}
 }
 
 
 // updateCentroids function: Updates the centroids of the Fuzzy C-Means algorithm.//
 std::vector<std::vector<double>> FuzzyCMeans::updateCentroids(const std::vector<std::vector<double>>& data) {
+	int numPoints = data.size();
+	int numFeatures = data[0].size();
+	std::vector<std::vector<double>> newCentroids(numClusters_, std::vector<double>(numFeatures, 0.0));
 
-	/* Implement the following:
-		--- Iterate through each cluster
-		--- Iterate through each data point
-		--- Calculate the membership of the data point to the cluster raised to the fuzziness
-	*/
-	
-	// TODO
+	/* --- Iterate through each cluster --- */
+	for (int j = 0; j < numClusters_; ++j) {
+		double denominator = 0.0;
 
+		/* --- Iterate through each data point --- */
+		for (int i = 0; i < numPoints; ++i) {
 
+			/* --- Calculate the membership of the data point to the cluster raised to the fuzziness --- */
+			double u_ij_m = std::pow(membershipMatrix_[i][j], fuzziness_);
+			denominator += u_ij_m;
+
+			for (int f = 0; f < numFeatures; ++f) {
+				newCentroids[j][f] += u_ij_m * data[i][f];
+			}
+		}
+
+		if (denominator > 0) {
+			for (int f = 0; f < numFeatures; ++f) {
+				newCentroids[j][f] /= denominator;
+			}
+		}
+		else {
+			newCentroids[j] = centroids_[j];
+		}
+	}
+
+	centroids_ = newCentroids;
 	return centroids_; // Return the centroids
 }
-
 
 // predict function: Predicts the cluster labels for the given data points using the Fuzzy C-Means algorithm.//
 std::vector<int> FuzzyCMeans::predict(const std::vector<std::vector<double>>& data) const {
 	std::vector<int> labels; // Create a vector to store the labels
 	labels.reserve(data.size()); // Reserve space for the labels
 
-	/* Implement the following:
-		--- Iterate through each point in the data
-		--- Iterate through each centroid
-		--- Calculate the distance between the point and the centroid
-		--- Calculate the membership of the point to the centroid
-		--- Add the label of the closest centroid to the labels vector
-	*/
-	
-	//TODO
+	double p = 2.0 / (fuzziness_ - 1.0);
 
-	return labels; // Return the labels vector
+	/* --- Iterate through each point in the data --- */
+	for (const auto& point : data) {
+		int closestCentroid = -1;
+		double maxMembership = -1.0;
 
+		std::vector<double> distances(numClusters_);
+		bool pointOnCentroid = false;
+		int exactCentroidIdx = -1;
+
+		/* --- Iterate through each centroid --- */
+		for (int c = 0; c < numClusters_; ++c) {
+			/* --- Calculate the distance between the point and the centroid --- */
+			distances[c] = SimilarityFunctions::euclideanDistance(point, centroids_[c]);
+			if (distances[c] < 1e-10) {
+				pointOnCentroid = true;
+				exactCentroidIdx = c;
+			}
+		}
+
+		/* --- Calculate the membership of the point to the centroid --- */
+		if (pointOnCentroid) {
+			closestCentroid = exactCentroidIdx;
+		}
+		else {
+			for (int j = 0; j < numClusters_; ++j) {
+				double denomSum = 0.0;
+				for (int k = 0; k < numClusters_; ++k) {
+					denomSum += std::pow(distances[j] / distances[k], p);
+				}
+				double membership = 1.0 / denomSum;
+
+				if (membership > maxMembership) {
+					maxMembership = membership;
+					closestCentroid = j;
+				}
+			}
+		}
+
+		/* --- Add the label of the closest centroid to the labels vector --- */
+		labels.push_back(closestCentroid);
+	}
+
+	return labels;
 }
 
 

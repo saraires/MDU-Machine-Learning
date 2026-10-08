@@ -31,18 +31,74 @@ void KMeans::fit(const std::vector<std::vector<double>>& data) {
 	// Create a copy of the data to preserve the original dataset
 	std::vector<std::vector<double>> normalizedData = data;
 
-	/* Implement the following:
-		---	Initialize centroids randomly
-		--- Randomly select unique centroid indices
-		---	Perform K-means clustering
-		--- Assign data points to the nearest centroid
-		--- Calculate the Euclidean distance between the point and the current centroid
-		--- Update newCentroids and clusterCounts
-		--- Update centroids
-		---  Check for convergence
-	*/
-	
-	// TODO
+	int numPoints = normalizedData.size();
+	int numFeatures = normalizedData[0].size();
+
+	/* --- Initialize centroids randomly --- */
+	centroids_.clear();
+	std::vector<int> indices(numPoints);
+
+	for (int i = 0; i < numPoints; ++i) {
+		indices[i] = i;
+	}
+
+	std::random_device rd;
+	std::mt19937 g(rd());
+	std::shuffle(indices.begin(), indices.end(), g);
+
+	/* --- Randomly select unique centroid indices --- */
+	for (int i = 0; i < numClusters_; ++i) {
+		centroids_.push_back(normalizedData[indices[i]]);
+	}
+
+	/* --- Perform K-means clustering --- */
+	for (int iter = 0; iter < maxIterations_; ++iter) {
+
+		/* --- Assign data points to the nearest centroid --- */
+		std::vector<int> labels = predict(normalizedData);
+
+		std::vector<std::vector<double>> newCentroids(numClusters_, std::vector<double>(numFeatures, 0.0));
+		std::vector<int> clusterCounts(numClusters_, 0);
+
+		/* --- Update newCentroids and clusterCounts --- */
+		for (int i = 0; i < numPoints; ++i) {
+			int clusterIdx = labels[i];
+			for (int j = 0; j < numFeatures; ++j) {
+				newCentroids[clusterIdx][j] += normalizedData[i][j];
+			}
+			clusterCounts[clusterIdx]++;
+		}
+
+		bool converged = true;
+
+		/* --- Update centroids --- */
+		for (int c = 0; c < numClusters_; ++c) {
+			if (clusterCounts[c] > 0) {
+				for (int j = 0; j < numFeatures; ++j) {
+					newCentroids[c][j] /= clusterCounts[c];
+				}
+			}
+			else {
+				// Evitar que un centroide se quede sin puntos asignados
+				newCentroids[c] = centroids_[c];
+			}
+
+			/* --- Check for convergence --- */
+			for (int j = 0; j < numFeatures; ++j) {
+				// Si la diferencia entre el centroide viejo y el nuevo es significativa, no ha convergido
+				if (std::abs(centroids_[c][j] - newCentroids[c][j]) > 1e-6) {
+					converged = false;
+					break;
+				}
+			}
+		}
+
+		centroids_ = newCentroids;
+
+		if (converged) {
+			break; // Sale del bucle si los centroides ya no se mueven
+		}
+	}
 }
 
 
@@ -51,14 +107,27 @@ std::vector<int> KMeans::predict(const std::vector<std::vector<double>>& data) c
 	std::vector<int> labels;
 	labels.reserve(data.size());
 	
-	/* Implement the following:
-		--- Initialize the closest centroid and minimum distance to the maximum possible value
-		--- Iterate through each centroid
-		--- Calculate the Euclidean distance between the point and the centroid
-		--- Add the closest centroid to the labels vector
-    */
-	
-	// TODO
+	for (const auto& point : data) {
+		/* --- Initialize the closest centroid and minimum distance to the maximum possible value --- */
+		double minDistance = (std::numeric_limits<double>::max)();
+		int closestCentroid = -1;
+
+		/* --- Iterate through each centroid --- */
+		for (int c = 0; c < numClusters_; ++c) {
+
+			/* --- Calculate the Euclidean distance between the point and the centroid --- */
+			double dist = SimilarityFunctions::euclideanDistance(point, centroids_[c]);
+
+			if (dist < minDistance) {
+				minDistance = dist;
+				closestCentroid = c;
+			}
+		}
+
+		/* --- Add the closest centroid to the labels vector --- */
+		labels.push_back(closestCentroid);
+	}
+
 	return labels; // Return the labels vector
 
 }

@@ -248,15 +248,15 @@ private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea28 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend28 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series28 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea29 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend29 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series29 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea30 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend30 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series30 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->mainTabControl = (gcnew System::Windows::Forms::TabControl());
 			this->classificationTabPage = (gcnew System::Windows::Forms::TabPage());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
@@ -354,18 +354,24 @@ private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->clusteringChart))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->clusteringDataGridView))->BeginInit();
 			this->SuspendLayout();
+			// 
+			// mainTabControl
+			// 
 			this->mainTabControl->Controls->Add(this->classificationTabPage);
 			this->mainTabControl->Controls->Add(this->regressionTabPage);
 			this->mainTabControl->Controls->Add(this->clusteringTabPage);
-			this->mainTabControl->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->mainTabControl->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->mainTabControl->ItemSize = System::Drawing::Size(100, 30);
-			this->mainTabControl->Location = System::Drawing::Point(2, 1);
-			this->mainTabControl->Margin = System::Windows::Forms::Padding(2);
+			this->mainTabControl->Location = System::Drawing::Point(3, 1);
+			this->mainTabControl->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->mainTabControl->Name = L"mainTabControl";
 			this->mainTabControl->SelectedIndex = 0;
-			this->mainTabControl->Size = System::Drawing::Size(2550, 1565);
+			this->mainTabControl->Size = System::Drawing::Size(3400, 1926);
 			this->mainTabControl->TabIndex = 0;
+			// 
+			// classificationTabPage
+			// 
 			this->classificationTabPage->BackColor = System::Drawing::Color::Gainsboro;
 			this->classificationTabPage->Controls->Add(this->tableLayoutPanel1);
 			this->classificationTabPage->Controls->Add(this->label3);
@@ -391,203 +397,300 @@ private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 			this->classificationTabPage->Controls->Add(this->calssificationSelectAlgorithmLabel);
 			this->classificationTabPage->Controls->Add(this->classificationDataURLLabel);
 			this->classificationTabPage->Location = System::Drawing::Point(4, 34);
-			this->classificationTabPage->Margin = System::Windows::Forms::Padding(2);
+			this->classificationTabPage->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->classificationTabPage->Name = L"classificationTabPage";
-			this->classificationTabPage->Padding = System::Windows::Forms::Padding(2);
-			this->classificationTabPage->Size = System::Drawing::Size(2542, 1527);
+			this->classificationTabPage->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->classificationTabPage->Size = System::Drawing::Size(3392, 1888);
 			this->classificationTabPage->TabIndex = 0;
 			this->classificationTabPage->Text = L"Classification";
+			// 
+			// tableLayoutPanel1
+			// 
 			this->tableLayoutPanel1->ColumnCount = 2;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				54.3956)));
+				54.3956F)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				45.6044)));
+				45.6044F)));
 			this->tableLayoutPanel1->Controls->Add(this->classificationTrainingSetLabel, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->classificationTraningSetTextBox, 0, 1);
 			this->tableLayoutPanel1->Controls->Add(this->classificationTestSetTextBox, 1, 1);
 			this->tableLayoutPanel1->Controls->Add(this->classificationTestSetLabel, 1, 0);
-			this->tableLayoutPanel1->Location = System::Drawing::Point(916, 157);
+			this->tableLayoutPanel1->Location = System::Drawing::Point(1221, 193);
+			this->tableLayoutPanel1->Margin = System::Windows::Forms::Padding(4);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 2;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(182, 55);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(243, 68);
 			this->tableLayoutPanel1->TabIndex = 39;
+			// 
+			// classificationTrainingSetLabel
+			// 
 			this->classificationTrainingSetLabel->AutoSize = true;
-			this->classificationTrainingSetLabel->Location = System::Drawing::Point(3, 0);
+			this->classificationTrainingSetLabel->Location = System::Drawing::Point(4, 0);
+			this->classificationTrainingSetLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->classificationTrainingSetLabel->Name = L"classificationTrainingSetLabel";
-			this->classificationTrainingSetLabel->Size = System::Drawing::Size(85, 17);
+			this->classificationTrainingSetLabel->Size = System::Drawing::Size(99, 20);
 			this->classificationTrainingSetLabel->TabIndex = 37;
 			this->classificationTrainingSetLabel->Text = L"Training Set";
-			this->classificationTraningSetTextBox->Location = System::Drawing::Point(3, 30);
+			// 
+			// classificationTraningSetTextBox
+			// 
+			this->classificationTraningSetTextBox->Location = System::Drawing::Point(4, 38);
+			this->classificationTraningSetTextBox->Margin = System::Windows::Forms::Padding(4);
 			this->classificationTraningSetTextBox->Name = L"classificationTraningSetTextBox";
-			this->classificationTraningSetTextBox->Size = System::Drawing::Size(92, 23);
+			this->classificationTraningSetTextBox->Size = System::Drawing::Size(121, 27);
 			this->classificationTraningSetTextBox->TabIndex = 35;
-			this->classificationTestSetTextBox->Location = System::Drawing::Point(101, 30);
+			// 
+			// classificationTestSetTextBox
+			// 
+			this->classificationTestSetTextBox->Location = System::Drawing::Point(136, 38);
+			this->classificationTestSetTextBox->Margin = System::Windows::Forms::Padding(4);
 			this->classificationTestSetTextBox->Name = L"classificationTestSetTextBox";
-			this->classificationTestSetTextBox->Size = System::Drawing::Size(77, 23);
+			this->classificationTestSetTextBox->Size = System::Drawing::Size(101, 27);
 			this->classificationTestSetTextBox->TabIndex = 36;
+			// 
+			// classificationTestSetLabel
+			// 
 			this->classificationTestSetLabel->AutoSize = true;
-			this->classificationTestSetLabel->Location = System::Drawing::Point(101, 0);
+			this->classificationTestSetLabel->Location = System::Drawing::Point(136, 0);
+			this->classificationTestSetLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->classificationTestSetLabel->Name = L"classificationTestSetLabel";
-			this->classificationTestSetLabel->Size = System::Drawing::Size(61, 17);
+			this->classificationTestSetLabel->Size = System::Drawing::Size(72, 20);
 			this->classificationTestSetLabel->TabIndex = 38;
 			this->classificationTestSetLabel->Text = L"Test Set";
+			// 
+			// label3
+			// 
 			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(780, 124);
+			this->label3->Location = System::Drawing::Point(1040, 153);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(145, 18);
+			this->label3->Size = System::Drawing::Size(180, 24);
 			this->label3->TabIndex = 34;
 			this->label3->Text = L"Insert Percentage:";
-			this->classificationBrowseButton->Location = System::Drawing::Point(740, 53);
+			// 
+			// classificationBrowseButton
+			// 
+			this->classificationBrowseButton->Location = System::Drawing::Point(987, 65);
+			this->classificationBrowseButton->Margin = System::Windows::Forms::Padding(4);
 			this->classificationBrowseButton->Name = L"classificationBrowseButton";
-			this->classificationBrowseButton->Size = System::Drawing::Size(63, 39);
+			this->classificationBrowseButton->Size = System::Drawing::Size(84, 48);
 			this->classificationBrowseButton->TabIndex = 33;
 			this->classificationBrowseButton->Text = L"Browse";
 			this->classificationBrowseButton->UseVisualStyleBackColor = true;
 			this->classificationBrowseButton->Click += gcnew System::EventHandler(this, &MainForm::classificationBrowseButton_Click);
+			// 
+			// classificationTestSetEvaluationLabel
+			// 
 			this->classificationTestSetEvaluationLabel->AutoSize = true;
-			this->classificationTestSetEvaluationLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25, System::Drawing::FontStyle::Bold,
+			this->classificationTestSetEvaluationLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->classificationTestSetEvaluationLabel->Location = System::Drawing::Point(19, 691);
+			this->classificationTestSetEvaluationLabel->Location = System::Drawing::Point(25, 850);
+			this->classificationTestSetEvaluationLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->classificationTestSetEvaluationLabel->Name = L"classificationTestSetEvaluationLabel";
-			this->classificationTestSetEvaluationLabel->Size = System::Drawing::Size(291, 18);
+			this->classificationTestSetEvaluationLabel->Size = System::Drawing::Size(359, 24);
 			this->classificationTestSetEvaluationLabel->TabIndex = 32;
 			this->classificationTestSetEvaluationLabel->Text = L"Test Set Evaluation and Visualisation:";
+			// 
+			// classificationTrainingSetEvaluationLabel
+			// 
 			this->classificationTrainingSetEvaluationLabel->AutoSize = true;
-			this->classificationTrainingSetEvaluationLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25, System::Drawing::FontStyle::Bold,
+			this->classificationTrainingSetEvaluationLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->classificationTrainingSetEvaluationLabel->Location = System::Drawing::Point(13, 416);
+			this->classificationTrainingSetEvaluationLabel->Location = System::Drawing::Point(17, 512);
+			this->classificationTrainingSetEvaluationLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->classificationTrainingSetEvaluationLabel->Name = L"classificationTrainingSetEvaluationLabel";
-			this->classificationTrainingSetEvaluationLabel->Size = System::Drawing::Size(318, 18);
+			this->classificationTrainingSetEvaluationLabel->Size = System::Drawing::Size(396, 24);
 			this->classificationTrainingSetEvaluationLabel->TabIndex = 31;
 			this->classificationTrainingSetEvaluationLabel->Text = L"Training Set Evaluation and Visualisation:";
-			this->trainingAccuracyTextBox->Location = System::Drawing::Point(53, 559);
+			// 
+			// trainingAccuracyTextBox
+			// 
+			this->trainingAccuracyTextBox->Location = System::Drawing::Point(71, 688);
+			this->trainingAccuracyTextBox->Margin = System::Windows::Forms::Padding(4);
 			this->trainingAccuracyTextBox->Name = L"trainingAccuracyTextBox";
-			this->trainingAccuracyTextBox->Size = System::Drawing::Size(100, 23);
+			this->trainingAccuracyTextBox->Size = System::Drawing::Size(132, 27);
 			this->trainingAccuracyTextBox->TabIndex = 30;
+			// 
+			// trainingAccuracyLabel
+			// 
 			this->trainingAccuracyLabel->AutoSize = true;
-			this->trainingAccuracyLabel->Location = System::Drawing::Point(74, 535);
+			this->trainingAccuracyLabel->Location = System::Drawing::Point(99, 658);
+			this->trainingAccuracyLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->trainingAccuracyLabel->Name = L"trainingAccuracyLabel";
-			this->trainingAccuracyLabel->Size = System::Drawing::Size(66, 17);
+			this->trainingAccuracyLabel->Size = System::Drawing::Size(79, 20);
 			this->trainingAccuracyLabel->TabIndex = 29;
 			this->trainingAccuracyLabel->Text = L"Accuracy";
+			// 
+			// trainingConfusionMatrixLabel
+			// 
 			this->trainingConfusionMatrixLabel->AutoSize = true;
-			this->trainingConfusionMatrixLabel->Location = System::Drawing::Point(349, 451);
+			this->trainingConfusionMatrixLabel->Location = System::Drawing::Point(465, 555);
+			this->trainingConfusionMatrixLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->trainingConfusionMatrixLabel->Name = L"trainingConfusionMatrixLabel";
-			this->trainingConfusionMatrixLabel->Size = System::Drawing::Size(112, 17);
+			this->trainingConfusionMatrixLabel->Size = System::Drawing::Size(135, 20);
 			this->trainingConfusionMatrixLabel->TabIndex = 28;
 			this->trainingConfusionMatrixLabel->Text = L"Confusion Matrix";
+			// 
+			// trainingCMDataGridView
+			// 
 			this->trainingCMDataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->trainingCMDataGridView->Location = System::Drawing::Point(195, 487);
+			this->trainingCMDataGridView->Location = System::Drawing::Point(260, 599);
+			this->trainingCMDataGridView->Margin = System::Windows::Forms::Padding(4);
 			this->trainingCMDataGridView->Name = L"trainingCMDataGridView";
 			this->trainingCMDataGridView->RowHeadersWidth = 51;
-			this->trainingCMDataGridView->Size = System::Drawing::Size(362, 146);
+			this->trainingCMDataGridView->Size = System::Drawing::Size(483, 180);
 			this->trainingCMDataGridView->TabIndex = 27;
+			// 
+			// trainingEvaluationLabel
+			// 
 			this->trainingEvaluationLabel->AutoSize = true;
-			this->trainingEvaluationLabel->Location = System::Drawing::Point(714, 451);
+			this->trainingEvaluationLabel->Location = System::Drawing::Point(952, 555);
+			this->trainingEvaluationLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->trainingEvaluationLabel->Name = L"trainingEvaluationLabel";
-			this->trainingEvaluationLabel->Size = System::Drawing::Size(202, 17);
+			this->trainingEvaluationLabel->Size = System::Drawing::Size(240, 20);
 			this->trainingEvaluationLabel->TabIndex = 26;
 			this->trainingEvaluationLabel->Text = L"Recall, Precision and F1 Score";
+			// 
+			// trainingEvaluationDataGridView
+			// 
 			this->trainingEvaluationDataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->trainingEvaluationDataGridView->Location = System::Drawing::Point(581, 487);
+			this->trainingEvaluationDataGridView->Location = System::Drawing::Point(775, 599);
+			this->trainingEvaluationDataGridView->Margin = System::Windows::Forms::Padding(4);
 			this->trainingEvaluationDataGridView->Name = L"trainingEvaluationDataGridView";
 			this->trainingEvaluationDataGridView->RowHeadersWidth = 51;
-			this->trainingEvaluationDataGridView->Size = System::Drawing::Size(459, 145);
+			this->trainingEvaluationDataGridView->Size = System::Drawing::Size(612, 178);
 			this->trainingEvaluationDataGridView->TabIndex = 25;
+			// 
+			// testEvaluationLabel
+			// 
 			this->testEvaluationLabel->AutoSize = true;
-			this->testEvaluationLabel->Location = System::Drawing::Point(682, 725);
-			this->testEvaluationLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->testEvaluationLabel->Location = System::Drawing::Point(909, 892);
 			this->testEvaluationLabel->Name = L"testEvaluationLabel";
-			this->testEvaluationLabel->Size = System::Drawing::Size(202, 17);
+			this->testEvaluationLabel->Size = System::Drawing::Size(240, 20);
 			this->testEvaluationLabel->TabIndex = 24;
 			this->testEvaluationLabel->Text = L"Recall, Precision and F1 Score";
+			// 
+			// testEvaluationDataGridView
+			// 
 			this->testEvaluationDataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->testEvaluationDataGridView->Location = System::Drawing::Point(578, 752);
-			this->testEvaluationDataGridView->Margin = System::Windows::Forms::Padding(2);
+			this->testEvaluationDataGridView->Location = System::Drawing::Point(771, 926);
+			this->testEvaluationDataGridView->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->testEvaluationDataGridView->Name = L"testEvaluationDataGridView";
 			this->testEvaluationDataGridView->RowHeadersWidth = 51;
 			this->testEvaluationDataGridView->RowTemplate->Height = 24;
-			this->testEvaluationDataGridView->Size = System::Drawing::Size(468, 130);
+			this->testEvaluationDataGridView->Size = System::Drawing::Size(624, 160);
 			this->testEvaluationDataGridView->TabIndex = 23;
+			// 
+			// testConfusionMatrixLabel
+			// 
 			this->testConfusionMatrixLabel->AutoSize = true;
-			this->testConfusionMatrixLabel->Location = System::Drawing::Point(314, 725);
-			this->testConfusionMatrixLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->testConfusionMatrixLabel->Location = System::Drawing::Point(419, 892);
 			this->testConfusionMatrixLabel->Name = L"testConfusionMatrixLabel";
-			this->testConfusionMatrixLabel->Size = System::Drawing::Size(112, 17);
+			this->testConfusionMatrixLabel->Size = System::Drawing::Size(135, 20);
 			this->testConfusionMatrixLabel->TabIndex = 22;
 			this->testConfusionMatrixLabel->Text = L"Confusion Matrix";
+			// 
+			// testCMDataGridView
+			// 
 			this->testCMDataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->testCMDataGridView->Location = System::Drawing::Point(191, 752);
-			this->testCMDataGridView->Margin = System::Windows::Forms::Padding(2);
+			this->testCMDataGridView->Location = System::Drawing::Point(255, 926);
+			this->testCMDataGridView->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->testCMDataGridView->Name = L"testCMDataGridView";
 			this->testCMDataGridView->RowHeadersWidth = 51;
 			this->testCMDataGridView->RowTemplate->Height = 24;
-			this->testCMDataGridView->Size = System::Drawing::Size(364, 130);
+			this->testCMDataGridView->Size = System::Drawing::Size(485, 160);
 			this->testCMDataGridView->TabIndex = 21;
+			// 
+			// testAccuracyLabel
+			// 
 			this->testAccuracyLabel->AutoSize = true;
-			this->testAccuracyLabel->Location = System::Drawing::Point(77, 785);
+			this->testAccuracyLabel->Location = System::Drawing::Point(103, 966);
+			this->testAccuracyLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->testAccuracyLabel->Name = L"testAccuracyLabel";
-			this->testAccuracyLabel->Size = System::Drawing::Size(66, 17);
+			this->testAccuracyLabel->Size = System::Drawing::Size(79, 20);
 			this->testAccuracyLabel->TabIndex = 10;
 			this->testAccuracyLabel->Text = L"Accuracy";
-			this->testAccuracyTextBox->Location = System::Drawing::Point(67, 805);
+			// 
+			// testAccuracyTextBox
+			// 
+			this->testAccuracyTextBox->Location = System::Drawing::Point(89, 991);
+			this->testAccuracyTextBox->Margin = System::Windows::Forms::Padding(4);
 			this->testAccuracyTextBox->Name = L"testAccuracyTextBox";
-			this->testAccuracyTextBox->Size = System::Drawing::Size(80, 23);
+			this->testAccuracyTextBox->Size = System::Drawing::Size(105, 27);
 			this->testAccuracyTextBox->TabIndex = 9;
+			// 
+			// classificationDataGridView
+			// 
 			this->classificationDataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->classificationDataGridView->Location = System::Drawing::Point(99, 80);
-			this->classificationDataGridView->Margin = System::Windows::Forms::Padding(2);
+			this->classificationDataGridView->Location = System::Drawing::Point(132, 98);
+			this->classificationDataGridView->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->classificationDataGridView->Name = L"classificationDataGridView";
 			this->classificationDataGridView->RowHeadersWidth = 51;
 			this->classificationDataGridView->RowTemplate->Height = 24;
-			this->classificationDataGridView->Size = System::Drawing::Size(585, 279);
+			this->classificationDataGridView->Size = System::Drawing::Size(780, 343);
 			this->classificationDataGridView->TabIndex = 6;
-			this->calassificationRunButton->Location = System::Drawing::Point(1175, 295);
-			this->calassificationRunButton->Margin = System::Windows::Forms::Padding(2);
+			// 
+			// calassificationRunButton
+			// 
+			this->calassificationRunButton->Location = System::Drawing::Point(1567, 363);
+			this->calassificationRunButton->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->calassificationRunButton->Name = L"calassificationRunButton";
-			this->calassificationRunButton->Size = System::Drawing::Size(67, 42);
+			this->calassificationRunButton->Size = System::Drawing::Size(89, 52);
 			this->calassificationRunButton->TabIndex = 5;
 			this->calassificationRunButton->Text = L"Run";
 			this->calassificationRunButton->UseVisualStyleBackColor = true;
 			this->calassificationRunButton->Click += gcnew System::EventHandler(this, &MainForm::calassificationRunButton_Click);
-			this->classificationDataPathTextBox->Location = System::Drawing::Point(99, 53);
-			this->classificationDataPathTextBox->Margin = System::Windows::Forms::Padding(2);
+			// 
+			// classificationDataPathTextBox
+			// 
+			this->classificationDataPathTextBox->Location = System::Drawing::Point(132, 65);
+			this->classificationDataPathTextBox->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->classificationDataPathTextBox->Name = L"classificationDataPathTextBox";
-			this->classificationDataPathTextBox->Size = System::Drawing::Size(587, 23);
+			this->classificationDataPathTextBox->Size = System::Drawing::Size(781, 27);
 			this->classificationDataPathTextBox->TabIndex = 3;
+			// 
+			// classificationAlgorithmListBox
+			// 
 			this->classificationAlgorithmListBox->FormattingEnabled = true;
-			this->classificationAlgorithmListBox->ItemHeight = 17;
+			this->classificationAlgorithmListBox->ItemHeight = 20;
 			this->classificationAlgorithmListBox->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
 				L"KNN Classification", L"Decision Tree Classification",
 					L"Logistic Regression (Classification)"
 			});
-			this->classificationAlgorithmListBox->Location = System::Drawing::Point(916, 282);
-			this->classificationAlgorithmListBox->Margin = System::Windows::Forms::Padding(2);
+			this->classificationAlgorithmListBox->Location = System::Drawing::Point(1221, 347);
+			this->classificationAlgorithmListBox->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->classificationAlgorithmListBox->Name = L"classificationAlgorithmListBox";
-			this->classificationAlgorithmListBox->Size = System::Drawing::Size(237, 55);
+			this->classificationAlgorithmListBox->Size = System::Drawing::Size(315, 64);
 			this->classificationAlgorithmListBox->TabIndex = 2;
+			// 
+			// calssificationSelectAlgorithmLabel
+			// 
 			this->calssificationSelectAlgorithmLabel->AutoSize = true;
-			this->calssificationSelectAlgorithmLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25, System::Drawing::FontStyle::Bold,
+			this->calssificationSelectAlgorithmLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->calssificationSelectAlgorithmLabel->Location = System::Drawing::Point(780, 256);
-			this->calssificationSelectAlgorithmLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->calssificationSelectAlgorithmLabel->Location = System::Drawing::Point(1040, 315);
 			this->calssificationSelectAlgorithmLabel->Name = L"calssificationSelectAlgorithmLabel";
-			this->calssificationSelectAlgorithmLabel->Size = System::Drawing::Size(136, 18);
+			this->calssificationSelectAlgorithmLabel->Size = System::Drawing::Size(169, 24);
 			this->calssificationSelectAlgorithmLabel->TabIndex = 1;
 			this->calssificationSelectAlgorithmLabel->Text = L"Select Algorithm:";
+			// 
+			// classificationDataURLLabel
+			// 
 			this->classificationDataURLLabel->AutoSize = true;
-			this->classificationDataURLLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25, System::Drawing::FontStyle::Bold,
+			this->classificationDataURLLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->classificationDataURLLabel->Location = System::Drawing::Point(19, 26);
-			this->classificationDataURLLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->classificationDataURLLabel->Location = System::Drawing::Point(25, 32);
 			this->classificationDataURLLabel->Name = L"classificationDataURLLabel";
-			this->classificationDataURLLabel->Size = System::Drawing::Size(87, 18);
+			this->classificationDataURLLabel->Size = System::Drawing::Size(104, 24);
 			this->classificationDataURLLabel->TabIndex = 0;
 			this->classificationDataURLLabel->Text = L"Data Path:";
+			// 
+			// regressionTabPage
+			// 
 			this->regressionTabPage->BackColor = System::Drawing::Color::Gainsboro;
 			this->regressionTabPage->Controls->Add(this->regressionPercentageTableLayoutPanel);
 			this->regressionTabPage->Controls->Add(this->regressionTestTableLayoutPanel);
@@ -605,62 +708,86 @@ private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 			this->regressionTabPage->Controls->Add(this->regressionSelectAlgorithmLabel);
 			this->regressionTabPage->Controls->Add(this->regressionDataURLLabel);
 			this->regressionTabPage->Location = System::Drawing::Point(4, 34);
-			this->regressionTabPage->Margin = System::Windows::Forms::Padding(2);
+			this->regressionTabPage->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->regressionTabPage->Name = L"regressionTabPage";
-			this->regressionTabPage->Padding = System::Windows::Forms::Padding(2);
-			this->regressionTabPage->Size = System::Drawing::Size(2542, 1527);
+			this->regressionTabPage->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->regressionTabPage->Size = System::Drawing::Size(3392, 1888);
 			this->regressionTabPage->TabIndex = 1;
 			this->regressionTabPage->Text = L"Regression";
+			// 
+			// regressionPercentageTableLayoutPanel
+			// 
 			this->regressionPercentageTableLayoutPanel->ColumnCount = 2;
 			this->regressionPercentageTableLayoutPanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				55.03356)));
+				55.03356F)));
 			this->regressionPercentageTableLayoutPanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				44.96644)));
+				44.96644F)));
 			this->regressionPercentageTableLayoutPanel->Controls->Add(this->regressionTestSetLabel, 1, 0);
 			this->regressionPercentageTableLayoutPanel->Controls->Add(this->regressionTrainingSetLabel, 0, 0);
 			this->regressionPercentageTableLayoutPanel->Controls->Add(this->regressionTestSetTextBox, 1, 1);
 			this->regressionPercentageTableLayoutPanel->Controls->Add(this->regressionTraningSetTextBox, 0, 1);
-			this->regressionPercentageTableLayoutPanel->Location = System::Drawing::Point(942, 157);
+			this->regressionPercentageTableLayoutPanel->Location = System::Drawing::Point(1256, 193);
+			this->regressionPercentageTableLayoutPanel->Margin = System::Windows::Forms::Padding(4);
 			this->regressionPercentageTableLayoutPanel->Name = L"regressionPercentageTableLayoutPanel";
 			this->regressionPercentageTableLayoutPanel->RowCount = 2;
 			this->regressionPercentageTableLayoutPanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent,
-				50.81967)));
+				50.81967F)));
 			this->regressionPercentageTableLayoutPanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent,
-				49.18033)));
-			this->regressionPercentageTableLayoutPanel->Size = System::Drawing::Size(174, 58);
+				49.18033F)));
+			this->regressionPercentageTableLayoutPanel->Size = System::Drawing::Size(232, 71);
 			this->regressionPercentageTableLayoutPanel->TabIndex = 37;
+			// 
+			// regressionTestSetLabel
+			// 
 			this->regressionTestSetLabel->AutoSize = true;
-			this->regressionTestSetLabel->Location = System::Drawing::Point(98, 0);
+			this->regressionTestSetLabel->Location = System::Drawing::Point(131, 0);
+			this->regressionTestSetLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->regressionTestSetLabel->Name = L"regressionTestSetLabel";
-			this->regressionTestSetLabel->Size = System::Drawing::Size(61, 17);
+			this->regressionTestSetLabel->Size = System::Drawing::Size(72, 20);
 			this->regressionTestSetLabel->TabIndex = 31;
 			this->regressionTestSetLabel->Text = L"Test Set";
+			// 
+			// regressionTrainingSetLabel
+			// 
 			this->regressionTrainingSetLabel->AutoSize = true;
-			this->regressionTrainingSetLabel->Location = System::Drawing::Point(3, 0);
+			this->regressionTrainingSetLabel->Location = System::Drawing::Point(4, 0);
+			this->regressionTrainingSetLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->regressionTrainingSetLabel->Name = L"regressionTrainingSetLabel";
-			this->regressionTrainingSetLabel->Size = System::Drawing::Size(85, 17);
+			this->regressionTrainingSetLabel->Size = System::Drawing::Size(99, 20);
 			this->regressionTrainingSetLabel->TabIndex = 30;
 			this->regressionTrainingSetLabel->Text = L"Training Set";
-			this->regressionTestSetTextBox->Location = System::Drawing::Point(98, 32);
+			// 
+			// regressionTestSetTextBox
+			// 
+			this->regressionTestSetTextBox->Location = System::Drawing::Point(131, 40);
+			this->regressionTestSetTextBox->Margin = System::Windows::Forms::Padding(4);
 			this->regressionTestSetTextBox->Name = L"regressionTestSetTextBox";
-			this->regressionTestSetTextBox->Size = System::Drawing::Size(70, 23);
+			this->regressionTestSetTextBox->Size = System::Drawing::Size(92, 27);
 			this->regressionTestSetTextBox->TabIndex = 25;
-			this->regressionTraningSetTextBox->Location = System::Drawing::Point(3, 32);
+			// 
+			// regressionTraningSetTextBox
+			// 
+			this->regressionTraningSetTextBox->Location = System::Drawing::Point(4, 40);
+			this->regressionTraningSetTextBox->Margin = System::Windows::Forms::Padding(4);
 			this->regressionTraningSetTextBox->Name = L"regressionTraningSetTextBox";
-			this->regressionTraningSetTextBox->Size = System::Drawing::Size(85, 23);
+			this->regressionTraningSetTextBox->Size = System::Drawing::Size(112, 27);
 			this->regressionTraningSetTextBox->TabIndex = 24;
+			// 
+			// regressionTestTableLayoutPanel
+			// 
 			this->regressionTestTableLayoutPanel->ColumnCount = 2;
 			this->regressionTestTableLayoutPanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				76.14679)));
+				76.14679F)));
 			this->regressionTestTableLayoutPanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				23.85321)));
+				23.85321F)));
 			this->regressionTestTableLayoutPanel->Controls->Add(this->rmseTestLabel, 0, 0);
 			this->regressionTestTableLayoutPanel->Controls->Add(this->maeTestLabel, 0, 1);
 			this->regressionTestTableLayoutPanel->Controls->Add(this->rSquaredTestLabel, 0, 2);
 			this->regressionTestTableLayoutPanel->Controls->Add(this->rmseTestTextBox, 1, 0);
 			this->regressionTestTableLayoutPanel->Controls->Add(this->maeTestTextBox, 1, 1);
 			this->regressionTestTableLayoutPanel->Controls->Add(this->rSquaredTestTextBox, 1, 2);
-			this->regressionTestTableLayoutPanel->Location = System::Drawing::Point(797, 433);
+			this->regressionTestTableLayoutPanel->Location = System::Drawing::Point(1063, 533);
+			this->regressionTestTableLayoutPanel->Margin = System::Windows::Forms::Padding(4);
 			this->regressionTestTableLayoutPanel->Name = L"regressionTestTableLayoutPanel";
 			this->regressionTestTableLayoutPanel->RowCount = 3;
 			this->regressionTestTableLayoutPanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent,
@@ -668,212 +795,296 @@ private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 			this->regressionTestTableLayoutPanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
 			this->regressionTestTableLayoutPanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute,
-				34)));
-			this->regressionTestTableLayoutPanel->Size = System::Drawing::Size(305, 117);
+				42)));
+			this->regressionTestTableLayoutPanel->Size = System::Drawing::Size(407, 144);
 			this->regressionTestTableLayoutPanel->TabIndex = 36;
+			// 
+			// rmseTestLabel
+			// 
 			this->rmseTestLabel->AutoSize = true;
-			this->rmseTestLabel->Location = System::Drawing::Point(2, 0);
-			this->rmseTestLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->rmseTestLabel->Location = System::Drawing::Point(3, 0);
 			this->rmseTestLabel->Name = L"rmseTestLabel";
-			this->rmseTestLabel->Size = System::Drawing::Size(220, 17);
+			this->rmseTestLabel->Size = System::Drawing::Size(260, 20);
 			this->rmseTestLabel->TabIndex = 13;
 			this->rmseTestLabel->Text = L"Root Mean Squared Error(RMSE)";
+			// 
+			// maeTestLabel
+			// 
 			this->maeTestLabel->AutoSize = true;
-			this->maeTestLabel->Location = System::Drawing::Point(2, 41);
-			this->maeTestLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->maeTestLabel->Location = System::Drawing::Point(3, 51);
 			this->maeTestLabel->Name = L"maeTestLabel";
-			this->maeTestLabel->Size = System::Drawing::Size(181, 17);
+			this->maeTestLabel->Size = System::Drawing::Size(216, 20);
 			this->maeTestLabel->TabIndex = 14;
 			this->maeTestLabel->Text = L"Mean Absolute Error (MAE)";
+			// 
+			// rSquaredTestLabel
+			// 
 			this->rSquaredTestLabel->AutoSize = true;
-			this->rSquaredTestLabel->Location = System::Drawing::Point(2, 82);
-			this->rSquaredTestLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->rSquaredTestLabel->Location = System::Drawing::Point(3, 102);
 			this->rSquaredTestLabel->Name = L"rSquaredTestLabel";
-			this->rSquaredTestLabel->Size = System::Drawing::Size(76, 17);
+			this->rSquaredTestLabel->Size = System::Drawing::Size(88, 20);
 			this->rSquaredTestLabel->TabIndex = 17;
 			this->rSquaredTestLabel->Text = L"R Squared";
-			this->rmseTestTextBox->Location = System::Drawing::Point(234, 2);
-			this->rmseTestTextBox->Margin = System::Windows::Forms::Padding(2);
+			// 
+			// rmseTestTextBox
+			// 
+			this->rmseTestTextBox->Location = System::Drawing::Point(312, 2);
+			this->rmseTestTextBox->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->rmseTestTextBox->Name = L"rmseTestTextBox";
-			this->rmseTestTextBox->Size = System::Drawing::Size(69, 23);
+			this->rmseTestTextBox->Size = System::Drawing::Size(91, 27);
 			this->rmseTestTextBox->TabIndex = 15;
-			this->maeTestTextBox->Location = System::Drawing::Point(234, 43);
-			this->maeTestTextBox->Margin = System::Windows::Forms::Padding(2);
+			// 
+			// maeTestTextBox
+			// 
+			this->maeTestTextBox->Location = System::Drawing::Point(312, 53);
+			this->maeTestTextBox->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->maeTestTextBox->Name = L"maeTestTextBox";
-			this->maeTestTextBox->Size = System::Drawing::Size(69, 23);
+			this->maeTestTextBox->Size = System::Drawing::Size(91, 27);
 			this->maeTestTextBox->TabIndex = 16;
-			this->rSquaredTestTextBox->Location = System::Drawing::Point(234, 84);
-			this->rSquaredTestTextBox->Margin = System::Windows::Forms::Padding(2);
+			// 
+			// rSquaredTestTextBox
+			// 
+			this->rSquaredTestTextBox->Location = System::Drawing::Point(312, 104);
+			this->rSquaredTestTextBox->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->rSquaredTestTextBox->Name = L"rSquaredTestTextBox";
-			this->rSquaredTestTextBox->Size = System::Drawing::Size(69, 23);
+			this->rSquaredTestTextBox->Size = System::Drawing::Size(91, 27);
 			this->rSquaredTestTextBox->TabIndex = 18;
-			chartArea1->Name = L"ChartArea1";
-			this->trainingRegressionChart->ChartAreas->Add(chartArea1);
-			legend1->Enabled = false;
-			legend1->Name = L"Legend1";
-			this->trainingRegressionChart->Legends->Add(legend1);
-			this->trainingRegressionChart->Location = System::Drawing::Point(362, 430);
+			// 
+			// trainingRegressionChart
+			// 
+			chartArea28->Name = L"ChartArea1";
+			this->trainingRegressionChart->ChartAreas->Add(chartArea28);
+			legend28->Enabled = false;
+			legend28->Name = L"Legend1";
+			this->trainingRegressionChart->Legends->Add(legend28);
+			this->trainingRegressionChart->Location = System::Drawing::Point(483, 529);
+			this->trainingRegressionChart->Margin = System::Windows::Forms::Padding(4);
 			this->trainingRegressionChart->Name = L"trainingRegressionChart";
-			series1->ChartArea = L"ChartArea1";
-			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
-			series1->Legend = L"Legend1";
-			series1->Name = L"Series1";
-			this->trainingRegressionChart->Series->Add(series1);
-			this->trainingRegressionChart->Size = System::Drawing::Size(334, 273);
+			series28->ChartArea = L"ChartArea1";
+			series28->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series28->Legend = L"Legend1";
+			series28->Name = L"Series1";
+			this->trainingRegressionChart->Series->Add(series28);
+			this->trainingRegressionChart->Size = System::Drawing::Size(445, 336);
 			this->trainingRegressionChart->TabIndex = 35;
 			this->trainingRegressionChart->Text = L"chart1";
+			// 
+			// label1
+			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(807, 130);
+			this->label1->Location = System::Drawing::Point(1076, 160);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(145, 18);
+			this->label1->Size = System::Drawing::Size(180, 24);
 			this->label1->TabIndex = 34;
 			this->label1->Text = L"Insert Percentage:";
+			// 
+			// testSetEvaluationLabel
+			// 
 			this->testSetEvaluationLabel->AutoSize = true;
-			this->testSetEvaluationLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25, System::Drawing::FontStyle::Bold,
+			this->testSetEvaluationLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->testSetEvaluationLabel->Location = System::Drawing::Point(794, 399);
+			this->testSetEvaluationLabel->Location = System::Drawing::Point(1059, 491);
+			this->testSetEvaluationLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->testSetEvaluationLabel->Name = L"testSetEvaluationLabel";
-			this->testSetEvaluationLabel->Size = System::Drawing::Size(291, 18);
+			this->testSetEvaluationLabel->Size = System::Drawing::Size(359, 24);
 			this->testSetEvaluationLabel->TabIndex = 33;
 			this->testSetEvaluationLabel->Text = L"Test Set Evaluation and Visualisation:";
+			// 
+			// trainingSetEvaluationLabel
+			// 
 			this->trainingSetEvaluationLabel->AutoSize = true;
-			this->trainingSetEvaluationLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25, System::Drawing::FontStyle::Bold,
+			this->trainingSetEvaluationLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->trainingSetEvaluationLabel->Location = System::Drawing::Point(25, 399);
+			this->trainingSetEvaluationLabel->Location = System::Drawing::Point(33, 491);
+			this->trainingSetEvaluationLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->trainingSetEvaluationLabel->Name = L"trainingSetEvaluationLabel";
-			this->trainingSetEvaluationLabel->Size = System::Drawing::Size(318, 18);
+			this->trainingSetEvaluationLabel->Size = System::Drawing::Size(396, 24);
 			this->trainingSetEvaluationLabel->TabIndex = 32;
 			this->trainingSetEvaluationLabel->Text = L"Training Set Evaluation and Visualisation:";
+			// 
+			// regressionTrainingTableLayoutPanel
+			// 
 			this->regressionTrainingTableLayoutPanel->ColumnCount = 2;
 			this->regressionTrainingTableLayoutPanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				74.69512)));
+				74.69512F)));
 			this->regressionTrainingTableLayoutPanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				25.30488)));
+				25.30488F)));
 			this->regressionTrainingTableLayoutPanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				20)));
+				27)));
 			this->regressionTrainingTableLayoutPanel->Controls->Add(this->rmseTrainTextBox, 1, 0);
 			this->regressionTrainingTableLayoutPanel->Controls->Add(this->rSquaredTrainLabel, 0, 2);
 			this->regressionTrainingTableLayoutPanel->Controls->Add(this->rmseTrainLabel, 0, 0);
 			this->regressionTrainingTableLayoutPanel->Controls->Add(this->rSquaredTrainTextBox, 1, 2);
 			this->regressionTrainingTableLayoutPanel->Controls->Add(this->maeTrainLabel, 0, 1);
 			this->regressionTrainingTableLayoutPanel->Controls->Add(this->maeTrainTextBox, 1, 1);
-			this->regressionTrainingTableLayoutPanel->Location = System::Drawing::Point(24, 430);
+			this->regressionTrainingTableLayoutPanel->Location = System::Drawing::Point(32, 529);
+			this->regressionTrainingTableLayoutPanel->Margin = System::Windows::Forms::Padding(4);
 			this->regressionTrainingTableLayoutPanel->Name = L"regressionTrainingTableLayoutPanel";
 			this->regressionTrainingTableLayoutPanel->RowCount = 3;
 			this->regressionTrainingTableLayoutPanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent,
-				47.05882)));
+				47.05882F)));
 			this->regressionTrainingTableLayoutPanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent,
-				52.94118)));
+				52.94118F)));
 			this->regressionTrainingTableLayoutPanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute,
-				31)));
-			this->regressionTrainingTableLayoutPanel->Size = System::Drawing::Size(308, 120);
+				38)));
+			this->regressionTrainingTableLayoutPanel->Size = System::Drawing::Size(411, 148);
 			this->regressionTrainingTableLayoutPanel->TabIndex = 29;
-			this->rmseTrainTextBox->Location = System::Drawing::Point(233, 3);
+			// 
+			// rmseTrainTextBox
+			// 
+			this->rmseTrainTextBox->Location = System::Drawing::Point(310, 4);
+			this->rmseTrainTextBox->Margin = System::Windows::Forms::Padding(4);
 			this->rmseTrainTextBox->Name = L"rmseTrainTextBox";
-			this->rmseTrainTextBox->Size = System::Drawing::Size(72, 23);
+			this->rmseTrainTextBox->Size = System::Drawing::Size(95, 27);
 			this->rmseTrainTextBox->TabIndex = 22;
+			// 
+			// rSquaredTrainLabel
+			// 
 			this->rSquaredTrainLabel->AutoSize = true;
-			this->rSquaredTrainLabel->Location = System::Drawing::Point(3, 88);
+			this->rSquaredTrainLabel->Location = System::Drawing::Point(4, 109);
+			this->rSquaredTrainLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->rSquaredTrainLabel->Name = L"rSquaredTrainLabel";
-			this->rSquaredTrainLabel->Size = System::Drawing::Size(76, 17);
+			this->rSquaredTrainLabel->Size = System::Drawing::Size(88, 20);
 			this->rSquaredTrainLabel->TabIndex = 28;
 			this->rSquaredTrainLabel->Text = L"R Squared";
+			// 
+			// rmseTrainLabel
+			// 
 			this->rmseTrainLabel->AutoSize = true;
-			this->rmseTrainLabel->Location = System::Drawing::Point(3, 0);
+			this->rmseTrainLabel->Location = System::Drawing::Point(4, 0);
+			this->rmseTrainLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->rmseTrainLabel->Name = L"rmseTrainLabel";
-			this->rmseTrainLabel->Size = System::Drawing::Size(220, 17);
+			this->rmseTrainLabel->Size = System::Drawing::Size(260, 20);
 			this->rmseTrainLabel->TabIndex = 26;
 			this->rmseTrainLabel->Text = L"Root Mean Squared Error(RMSE)";
-			this->rSquaredTrainTextBox->Location = System::Drawing::Point(233, 91);
+			// 
+			// rSquaredTrainTextBox
+			// 
+			this->rSquaredTrainTextBox->Location = System::Drawing::Point(310, 113);
+			this->rSquaredTrainTextBox->Margin = System::Windows::Forms::Padding(4);
 			this->rSquaredTrainTextBox->Name = L"rSquaredTrainTextBox";
-			this->rSquaredTrainTextBox->Size = System::Drawing::Size(72, 23);
+			this->rSquaredTrainTextBox->Size = System::Drawing::Size(95, 27);
 			this->rSquaredTrainTextBox->TabIndex = 23;
+			// 
+			// maeTrainLabel
+			// 
 			this->maeTrainLabel->AutoSize = true;
-			this->maeTrainLabel->Location = System::Drawing::Point(3, 41);
+			this->maeTrainLabel->Location = System::Drawing::Point(4, 51);
+			this->maeTrainLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->maeTrainLabel->Name = L"maeTrainLabel";
-			this->maeTrainLabel->Size = System::Drawing::Size(181, 17);
+			this->maeTrainLabel->Size = System::Drawing::Size(216, 20);
 			this->maeTrainLabel->TabIndex = 27;
 			this->maeTrainLabel->Text = L"Mean Absolute Error (MAE)";
-			this->maeTrainTextBox->Location = System::Drawing::Point(233, 44);
+			// 
+			// maeTrainTextBox
+			// 
+			this->maeTrainTextBox->Location = System::Drawing::Point(310, 55);
+			this->maeTrainTextBox->Margin = System::Windows::Forms::Padding(4);
 			this->maeTrainTextBox->Name = L"maeTrainTextBox";
-			this->maeTrainTextBox->Size = System::Drawing::Size(72, 23);
+			this->maeTrainTextBox->Size = System::Drawing::Size(95, 27);
 			this->maeTrainTextBox->TabIndex = 21;
-			this->regressionBrowseButton->Location = System::Drawing::Point(715, 53);
-			this->regressionBrowseButton->Margin = System::Windows::Forms::Padding(2);
+			// 
+			// regressionBrowseButton
+			// 
+			this->regressionBrowseButton->Location = System::Drawing::Point(953, 65);
+			this->regressionBrowseButton->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->regressionBrowseButton->Name = L"regressionBrowseButton";
-			this->regressionBrowseButton->Size = System::Drawing::Size(65, 39);
+			this->regressionBrowseButton->Size = System::Drawing::Size(87, 48);
 			this->regressionBrowseButton->TabIndex = 20;
 			this->regressionBrowseButton->Text = L"Browse";
 			this->regressionBrowseButton->UseVisualStyleBackColor = true;
 			this->regressionBrowseButton->Click += gcnew System::EventHandler(this, &MainForm::regressionBrowseButton_Click);
-			chartArea2->Name = L"ChartArea1";
-			this->testRegressionChart->ChartAreas->Add(chartArea2);
-			legend2->Enabled = false;
-			legend2->Name = L"Legend1";
-			this->testRegressionChart->Legends->Add(legend2);
-			this->testRegressionChart->Location = System::Drawing::Point(1134, 433);
-			this->testRegressionChart->Margin = System::Windows::Forms::Padding(2);
+			// 
+			// testRegressionChart
+			// 
+			chartArea29->Name = L"ChartArea1";
+			this->testRegressionChart->ChartAreas->Add(chartArea29);
+			legend29->Enabled = false;
+			legend29->Name = L"Legend1";
+			this->testRegressionChart->Legends->Add(legend29);
+			this->testRegressionChart->Location = System::Drawing::Point(1512, 533);
+			this->testRegressionChart->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->testRegressionChart->Name = L"testRegressionChart";
-			series2->ChartArea = L"ChartArea1";
-			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
-			series2->Legend = L"Legend1";
-			series2->Name = L"Series1";
-			this->testRegressionChart->Series->Add(series2);
-			this->testRegressionChart->Size = System::Drawing::Size(334, 270);
+			series29->ChartArea = L"ChartArea1";
+			series29->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series29->Legend = L"Legend1";
+			series29->Name = L"Series1";
+			this->testRegressionChart->Series->Add(series29);
+			this->testRegressionChart->Size = System::Drawing::Size(445, 332);
 			this->testRegressionChart->TabIndex = 19;
 			this->testRegressionChart->Text = L"chart1";
+			// 
+			// regressionDataGridView
+			// 
 			this->regressionDataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->regressionDataGridView->Location = System::Drawing::Point(99, 80);
-			this->regressionDataGridView->Margin = System::Windows::Forms::Padding(2);
+			this->regressionDataGridView->Location = System::Drawing::Point(132, 98);
+			this->regressionDataGridView->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->regressionDataGridView->Name = L"regressionDataGridView";
 			this->regressionDataGridView->RowHeadersWidth = 51;
 			this->regressionDataGridView->RowTemplate->Height = 24;
-			this->regressionDataGridView->Size = System::Drawing::Size(593, 260);
+			this->regressionDataGridView->Size = System::Drawing::Size(791, 320);
 			this->regressionDataGridView->TabIndex = 12;
-			this->regressionRuntButton->Location = System::Drawing::Point(1176, 287);
-			this->regressionRuntButton->Margin = System::Windows::Forms::Padding(2);
+			// 
+			// regressionRuntButton
+			// 
+			this->regressionRuntButton->Location = System::Drawing::Point(1568, 353);
+			this->regressionRuntButton->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->regressionRuntButton->Name = L"regressionRuntButton";
-			this->regressionRuntButton->Size = System::Drawing::Size(73, 38);
+			this->regressionRuntButton->Size = System::Drawing::Size(97, 47);
 			this->regressionRuntButton->TabIndex = 11;
 			this->regressionRuntButton->Text = L"Run";
 			this->regressionRuntButton->UseVisualStyleBackColor = true;
 			this->regressionRuntButton->Click += gcnew System::EventHandler(this, &MainForm::regressionRuntButton_Click);
-			this->regressionDataPathTextBox->Location = System::Drawing::Point(99, 53);
-			this->regressionDataPathTextBox->Margin = System::Windows::Forms::Padding(2);
+			// 
+			// regressionDataPathTextBox
+			// 
+			this->regressionDataPathTextBox->Location = System::Drawing::Point(132, 65);
+			this->regressionDataPathTextBox->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->regressionDataPathTextBox->Name = L"regressionDataPathTextBox";
-			this->regressionDataPathTextBox->Size = System::Drawing::Size(593, 23);
+			this->regressionDataPathTextBox->Size = System::Drawing::Size(789, 27);
 			this->regressionDataPathTextBox->TabIndex = 9;
+			// 
+			// regressionAlgorithmListBox
+			// 
 			this->regressionAlgorithmListBox->FormattingEnabled = true;
-			this->regressionAlgorithmListBox->ItemHeight = 17;
+			this->regressionAlgorithmListBox->ItemHeight = 20;
 			this->regressionAlgorithmListBox->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
 				L"KNN Regression", L"Linear Regression",
 					L"Decision Tree Regression"
 			});
-			this->regressionAlgorithmListBox->Location = System::Drawing::Point(942, 287);
-			this->regressionAlgorithmListBox->Margin = System::Windows::Forms::Padding(2);
+			this->regressionAlgorithmListBox->Location = System::Drawing::Point(1256, 353);
+			this->regressionAlgorithmListBox->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->regressionAlgorithmListBox->Name = L"regressionAlgorithmListBox";
-			this->regressionAlgorithmListBox->Size = System::Drawing::Size(203, 38);
+			this->regressionAlgorithmListBox->Size = System::Drawing::Size(269, 44);
 			this->regressionAlgorithmListBox->TabIndex = 8;
+			// 
+			// regressionSelectAlgorithmLabel
+			// 
 			this->regressionSelectAlgorithmLabel->AutoSize = true;
-			this->regressionSelectAlgorithmLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25, System::Drawing::FontStyle::Bold,
+			this->regressionSelectAlgorithmLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->regressionSelectAlgorithmLabel->Location = System::Drawing::Point(807, 261);
-			this->regressionSelectAlgorithmLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->regressionSelectAlgorithmLabel->Location = System::Drawing::Point(1076, 321);
 			this->regressionSelectAlgorithmLabel->Name = L"regressionSelectAlgorithmLabel";
-			this->regressionSelectAlgorithmLabel->Size = System::Drawing::Size(136, 18);
+			this->regressionSelectAlgorithmLabel->Size = System::Drawing::Size(169, 24);
 			this->regressionSelectAlgorithmLabel->TabIndex = 7;
 			this->regressionSelectAlgorithmLabel->Text = L"Select Algorithm:";
+			// 
+			// regressionDataURLLabel
+			// 
 			this->regressionDataURLLabel->AutoSize = true;
-			this->regressionDataURLLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25, System::Drawing::FontStyle::Bold,
+			this->regressionDataURLLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->regressionDataURLLabel->Location = System::Drawing::Point(19, 26);
-			this->regressionDataURLLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->regressionDataURLLabel->Location = System::Drawing::Point(25, 32);
 			this->regressionDataURLLabel->Name = L"regressionDataURLLabel";
-			this->regressionDataURLLabel->Size = System::Drawing::Size(87, 18);
+			this->regressionDataURLLabel->Size = System::Drawing::Size(104, 24);
 			this->regressionDataURLLabel->TabIndex = 6;
 			this->regressionDataURLLabel->Text = L"Data Path:";
+			// 
+			// clusteringTabPage
+			// 
 			this->clusteringTabPage->BackColor = System::Drawing::Color::Gainsboro;
 			this->clusteringTabPage->Controls->Add(this->clusteringEvaluationTableLayoutPanel);
 			this->clusteringTabPage->Controls->Add(this->label2);
@@ -886,137 +1097,191 @@ private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 			this->clusteringTabPage->Controls->Add(this->clusteringSelectAlgorithmLabel);
 			this->clusteringTabPage->Controls->Add(this->clusteringDataURLLabel);
 			this->clusteringTabPage->Location = System::Drawing::Point(4, 34);
-			this->clusteringTabPage->Margin = System::Windows::Forms::Padding(2);
+			this->clusteringTabPage->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->clusteringTabPage->Name = L"clusteringTabPage";
-			this->clusteringTabPage->Padding = System::Windows::Forms::Padding(2);
-			this->clusteringTabPage->Size = System::Drawing::Size(2542, 1527);
+			this->clusteringTabPage->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->clusteringTabPage->Size = System::Drawing::Size(3392, 1888);
 			this->clusteringTabPage->TabIndex = 2;
 			this->clusteringTabPage->Text = L"Clustering";
+			// 
+			// clusteringEvaluationTableLayoutPanel
+			// 
 			this->clusteringEvaluationTableLayoutPanel->ColumnCount = 2;
 			this->clusteringEvaluationTableLayoutPanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				69.96587)));
+				69.96587F)));
 			this->clusteringEvaluationTableLayoutPanel->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				30.03413)));
+				30.03413F)));
 			this->clusteringEvaluationTableLayoutPanel->Controls->Add(this->daviesBouldinIndexLabel, 0, 0);
 			this->clusteringEvaluationTableLayoutPanel->Controls->Add(this->silhouetteScoreLabel, 0, 1);
 			this->clusteringEvaluationTableLayoutPanel->Controls->Add(this->daviesBouldinIndexTextBox, 1, 0);
 			this->clusteringEvaluationTableLayoutPanel->Controls->Add(this->silhouetteScoreTextBox, 1, 1);
-			this->clusteringEvaluationTableLayoutPanel->Location = System::Drawing::Point(316, 438);
+			this->clusteringEvaluationTableLayoutPanel->Location = System::Drawing::Point(421, 539);
+			this->clusteringEvaluationTableLayoutPanel->Margin = System::Windows::Forms::Padding(4);
 			this->clusteringEvaluationTableLayoutPanel->Name = L"clusteringEvaluationTableLayoutPanel";
 			this->clusteringEvaluationTableLayoutPanel->RowCount = 2;
 			this->clusteringEvaluationTableLayoutPanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
 			this->clusteringEvaluationTableLayoutPanel->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
-			this->clusteringEvaluationTableLayoutPanel->Size = System::Drawing::Size(216, 81);
+			this->clusteringEvaluationTableLayoutPanel->Size = System::Drawing::Size(288, 100);
 			this->clusteringEvaluationTableLayoutPanel->TabIndex = 28;
+			// 
+			// daviesBouldinIndexLabel
+			// 
 			this->daviesBouldinIndexLabel->AutoSize = true;
-			this->daviesBouldinIndexLabel->Location = System::Drawing::Point(3, 0);
+			this->daviesBouldinIndexLabel->Location = System::Drawing::Point(4, 0);
+			this->daviesBouldinIndexLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->daviesBouldinIndexLabel->Name = L"daviesBouldinIndexLabel";
-			this->daviesBouldinIndexLabel->Size = System::Drawing::Size(139, 17);
+			this->daviesBouldinIndexLabel->Size = System::Drawing::Size(166, 20);
 			this->daviesBouldinIndexLabel->TabIndex = 23;
 			this->daviesBouldinIndexLabel->Text = L"Davies Bouldin Index";
+			// 
+			// silhouetteScoreLabel
+			// 
 			this->silhouetteScoreLabel->AutoSize = true;
-			this->silhouetteScoreLabel->Location = System::Drawing::Point(3, 40);
+			this->silhouetteScoreLabel->Location = System::Drawing::Point(4, 50);
+			this->silhouetteScoreLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->silhouetteScoreLabel->Name = L"silhouetteScoreLabel";
-			this->silhouetteScoreLabel->Size = System::Drawing::Size(112, 17);
+			this->silhouetteScoreLabel->Size = System::Drawing::Size(132, 20);
 			this->silhouetteScoreLabel->TabIndex = 24;
 			this->silhouetteScoreLabel->Text = L"Silhouette Score";
-			this->daviesBouldinIndexTextBox->Location = System::Drawing::Point(154, 3);
+			// 
+			// daviesBouldinIndexTextBox
+			// 
+			this->daviesBouldinIndexTextBox->Location = System::Drawing::Point(205, 4);
+			this->daviesBouldinIndexTextBox->Margin = System::Windows::Forms::Padding(4);
 			this->daviesBouldinIndexTextBox->Name = L"daviesBouldinIndexTextBox";
-			this->daviesBouldinIndexTextBox->Size = System::Drawing::Size(59, 23);
+			this->daviesBouldinIndexTextBox->Size = System::Drawing::Size(77, 27);
 			this->daviesBouldinIndexTextBox->TabIndex = 22;
-			this->silhouetteScoreTextBox->Location = System::Drawing::Point(154, 43);
+			// 
+			// silhouetteScoreTextBox
+			// 
+			this->silhouetteScoreTextBox->Location = System::Drawing::Point(205, 54);
+			this->silhouetteScoreTextBox->Margin = System::Windows::Forms::Padding(4);
 			this->silhouetteScoreTextBox->Name = L"silhouetteScoreTextBox";
-			this->silhouetteScoreTextBox->Size = System::Drawing::Size(59, 23);
+			this->silhouetteScoreTextBox->Size = System::Drawing::Size(77, 27);
 			this->silhouetteScoreTextBox->TabIndex = 25;
+			// 
+			// label2
+			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(20, 403);
+			this->label2->Location = System::Drawing::Point(27, 496);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(304, 18);
+			this->label2->Size = System::Drawing::Size(377, 24);
 			this->label2->TabIndex = 27;
 			this->label2->Text = L"Clustering Evaluation and Visualisation:";
-			this->clusteringBrowseButton->Location = System::Drawing::Point(724, 53);
+			// 
+			// clusteringBrowseButton
+			// 
+			this->clusteringBrowseButton->Location = System::Drawing::Point(965, 65);
+			this->clusteringBrowseButton->Margin = System::Windows::Forms::Padding(4);
 			this->clusteringBrowseButton->Name = L"clusteringBrowseButton";
-			this->clusteringBrowseButton->Size = System::Drawing::Size(65, 35);
+			this->clusteringBrowseButton->Size = System::Drawing::Size(87, 43);
 			this->clusteringBrowseButton->TabIndex = 26;
 			this->clusteringBrowseButton->Text = L"Browse";
 			this->clusteringBrowseButton->UseVisualStyleBackColor = true;
 			this->clusteringBrowseButton->Click += gcnew System::EventHandler(this, &MainForm::clusteringBrowseButton_Click);
-			chartArea3->Name = L"ChartArea1";
-			this->clusteringChart->ChartAreas->Add(chartArea3);
-			legend3->Enabled = false;
-			legend3->LegendStyle = System::Windows::Forms::DataVisualization::Charting::LegendStyle::Column;
-			legend3->Name = L"Legend1";
-			this->clusteringChart->Legends->Add(legend3);
-			this->clusteringChart->Location = System::Drawing::Point(652, 438);
+			// 
+			// clusteringChart
+			// 
+			chartArea30->Name = L"ChartArea1";
+			this->clusteringChart->ChartAreas->Add(chartArea30);
+			legend30->Enabled = false;
+			legend30->LegendStyle = System::Windows::Forms::DataVisualization::Charting::LegendStyle::Column;
+			legend30->Name = L"Legend1";
+			this->clusteringChart->Legends->Add(legend30);
+			this->clusteringChart->Location = System::Drawing::Point(869, 539);
+			this->clusteringChart->Margin = System::Windows::Forms::Padding(4);
 			this->clusteringChart->Name = L"clusteringChart";
-			series3->ChartArea = L"ChartArea1";
-			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
-			series3->Legend = L"Legend1";
-			series3->MarkerSize = 10;
-			series3->MarkerStyle = System::Windows::Forms::DataVisualization::Charting::MarkerStyle::Star5;
-			series3->Name = L"Series1";
-			this->clusteringChart->Series->Add(series3);
-			this->clusteringChart->Size = System::Drawing::Size(402, 400);
+			series30->ChartArea = L"ChartArea1";
+			series30->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series30->Legend = L"Legend1";
+			series30->MarkerSize = 10;
+			series30->MarkerStyle = System::Windows::Forms::DataVisualization::Charting::MarkerStyle::Star5;
+			series30->Name = L"Series1";
+			this->clusteringChart->Series->Add(series30);
+			this->clusteringChart->Size = System::Drawing::Size(536, 492);
 			this->clusteringChart->TabIndex = 21;
 			this->clusteringChart->Text = L"chart1";
+			// 
+			// clusteringDataGridView
+			// 
 			this->clusteringDataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->clusteringDataGridView->Location = System::Drawing::Point(99, 80);
-			this->clusteringDataGridView->Margin = System::Windows::Forms::Padding(2);
+			this->clusteringDataGridView->Location = System::Drawing::Point(132, 98);
+			this->clusteringDataGridView->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->clusteringDataGridView->Name = L"clusteringDataGridView";
 			this->clusteringDataGridView->RowHeadersWidth = 51;
 			this->clusteringDataGridView->RowTemplate->Height = 24;
-			this->clusteringDataGridView->Size = System::Drawing::Size(585, 260);
+			this->clusteringDataGridView->Size = System::Drawing::Size(780, 320);
 			this->clusteringDataGridView->TabIndex = 18;
-			this->clusteringRuntButton->Location = System::Drawing::Point(1056, 170);
-			this->clusteringRuntButton->Margin = System::Windows::Forms::Padding(2);
+			// 
+			// clusteringRuntButton
+			// 
+			this->clusteringRuntButton->Location = System::Drawing::Point(1408, 209);
+			this->clusteringRuntButton->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->clusteringRuntButton->Name = L"clusteringRuntButton";
-			this->clusteringRuntButton->Size = System::Drawing::Size(58, 36);
+			this->clusteringRuntButton->Size = System::Drawing::Size(77, 44);
 			this->clusteringRuntButton->TabIndex = 17;
 			this->clusteringRuntButton->Text = L"Run";
 			this->clusteringRuntButton->UseVisualStyleBackColor = true;
 			this->clusteringRuntButton->Click += gcnew System::EventHandler(this, &MainForm::clusteringRunButton_Click);
-			this->clusteringDataPathTextBox->Location = System::Drawing::Point(99, 53);
-			this->clusteringDataPathTextBox->Margin = System::Windows::Forms::Padding(2);
+			// 
+			// clusteringDataPathTextBox
+			// 
+			this->clusteringDataPathTextBox->Location = System::Drawing::Point(132, 65);
+			this->clusteringDataPathTextBox->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->clusteringDataPathTextBox->Name = L"clusteringDataPathTextBox";
-			this->clusteringDataPathTextBox->Size = System::Drawing::Size(585, 23);
+			this->clusteringDataPathTextBox->Size = System::Drawing::Size(779, 27);
 			this->clusteringDataPathTextBox->TabIndex = 15;
+			// 
+			// clusteringAlgorithmListBox
+			// 
 			this->clusteringAlgorithmListBox->FormattingEnabled = true;
-			this->clusteringAlgorithmListBox->ItemHeight = 17;
+			this->clusteringAlgorithmListBox->ItemHeight = 20;
 			this->clusteringAlgorithmListBox->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"K-means", L"Fuzzy c-means" });
-			this->clusteringAlgorithmListBox->Location = System::Drawing::Point(901, 162);
-			this->clusteringAlgorithmListBox->Margin = System::Windows::Forms::Padding(2);
+			this->clusteringAlgorithmListBox->Location = System::Drawing::Point(1201, 199);
+			this->clusteringAlgorithmListBox->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->clusteringAlgorithmListBox->Name = L"clusteringAlgorithmListBox";
-			this->clusteringAlgorithmListBox->Size = System::Drawing::Size(122, 38);
+			this->clusteringAlgorithmListBox->Size = System::Drawing::Size(161, 44);
 			this->clusteringAlgorithmListBox->TabIndex = 14;
+			// 
+			// clusteringSelectAlgorithmLabel
+			// 
 			this->clusteringSelectAlgorithmLabel->AutoSize = true;
-			this->clusteringSelectAlgorithmLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25, System::Drawing::FontStyle::Bold,
+			this->clusteringSelectAlgorithmLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->clusteringSelectAlgorithmLabel->Location = System::Drawing::Point(767, 142);
-			this->clusteringSelectAlgorithmLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->clusteringSelectAlgorithmLabel->Location = System::Drawing::Point(1023, 175);
 			this->clusteringSelectAlgorithmLabel->Name = L"clusteringSelectAlgorithmLabel";
-			this->clusteringSelectAlgorithmLabel->Size = System::Drawing::Size(136, 18);
+			this->clusteringSelectAlgorithmLabel->Size = System::Drawing::Size(169, 24);
 			this->clusteringSelectAlgorithmLabel->TabIndex = 13;
 			this->clusteringSelectAlgorithmLabel->Text = L"Select Algorithm:";
+			// 
+			// clusteringDataURLLabel
+			// 
 			this->clusteringDataURLLabel->AutoSize = true;
-			this->clusteringDataURLLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25, System::Drawing::FontStyle::Bold,
+			this->clusteringDataURLLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->clusteringDataURLLabel->Location = System::Drawing::Point(19, 26);
-			this->clusteringDataURLLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->clusteringDataURLLabel->Location = System::Drawing::Point(25, 32);
 			this->clusteringDataURLLabel->Name = L"clusteringDataURLLabel";
-			this->clusteringDataURLLabel->Size = System::Drawing::Size(87, 18);
+			this->clusteringDataURLLabel->Size = System::Drawing::Size(104, 24);
 			this->clusteringDataURLLabel->TabIndex = 12;
 			this->clusteringDataURLLabel->Text = L"Data Path:";
+			// 
+			// dataOpenFileDialog
+			// 
 			this->dataOpenFileDialog->FileName = L"openFileDialog1";
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			// 
+			// MainForm
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoScroll = true;
-			this->ClientSize = System::Drawing::Size(1443, 862);
+			this->ClientSize = System::Drawing::Size(1945, 1076);
 			this->Controls->Add(this->mainTabControl);
-			this->Margin = System::Windows::Forms::Padding(2);
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"MainForm";
 			this->Text = L"MainForm";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
@@ -1319,8 +1584,8 @@ private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 
 			if (algorithmIndex == 0) {
 				// K-Means Clustering//
-				int numClusters = 3;
-				int maxIterations = 100;
+				int numClusters = 5;
+				int maxIterations = 300;
 				KMeans kmeans(numClusters, maxIterations);
 
 				// Evaluation //
@@ -1346,8 +1611,8 @@ private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 			else if (algorithmIndex == 1) {
 				// FuzzyCMeans Clustering//
 				int numClusters = 3; // Set the number of clusters
-				int maxIterations = 100; // Set the maximum number of iterations
-				double fuzziness = 2.0; // Set the fuzziness parameter
+				int maxIterations = 200; // Set the maximum number of iterations
+				double fuzziness = 3.0; // Set the fuzziness parameter
 				FuzzyCMeans fcm(numClusters, maxIterations, fuzziness);
 			
 
@@ -1626,16 +1891,17 @@ void PlotReducedDimensionalData(System::Windows::Forms::DataVisualization::Chart
 	chart->Width = 600;
 	chart->Height = 400;
 
-	for (int i = 1; i <= numClusters; ++i) {
+
+	for (int i = 0; i < numClusters; ++i) {
 		for (int j = 0; j < labels.size(); ++j) {
 			if (labels[j] == i) {
 				chart->Series[0]->Points->AddXY(Principal_Component_1[j], Principal_Component_2[j]);
 
-				if (i == 1)
+				if (i == 0)
 					chart->Series[0]->Points[chart->Series[0]->Points->Count - 1]->Color = System::Drawing::Color::Red;
-				else if (i == 2)
+				else if (i == 1)
 					chart->Series[0]->Points[chart->Series[0]->Points->Count - 1]->Color = System::Drawing::Color::Green;
-				else if (i == 3)
+				else if (i == 2)
 					chart->Series[0]->Points[chart->Series[0]->Points->Count - 1]->Color = System::Drawing::Color::Blue;
 			}
 		}
